@@ -1,0 +1,91 @@
+.product{
+    margin: 10% 0 5% 0;
+    display: table-row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.product img {
+    display: flex;
+    justify-content: space-evenly;
+    width: 75vw;
+    margin-top:5%
+}
+
+.product h1,h2,h3,h4,h5 {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 2%;
+}
+
+.product h3{
+    font-weight: 400;
+}
+
+.product span{
+    display: flex;
+    justify-content: center;
+    color:#7F7F7F;
+    font-size:12px;
+    font-weight: 400;
+    font-family: 'Montserrat' , 'sans-serif';
+
+}
+.product__colors{
+    display: flex;
+    width: 80vw;
+    flex-direction: column;
+    
+
+}
+.product__colors .buttons{
+    display: inline-flex;
+    margin:5% 0 0 0;
+    gap:6px;
+    
+}
+.product__colors p{
+    width: 100vw;
+    font-family: 'Montserrat', 'sans-serif';
+    size:14px;
+    color:#202020
+}
+
+.buttons input[type="radio"]{
+
+    width:22.33px;
+    height:22px;
+    -webkit-appearance:none;
+    border:2px solid white;
+    border-radius:50%;
+    outline:none;
+    margin:0 0 7% 0;
+    
+}
+
+.buttons input[type="radio"]:checked{
+    
+    box-shadow:0 0 0 1.5px #DE8F75;
+    
+            
+}
+ #radio1{
+     
+     background:#A9095E;
+     
+ }
+
+ #radio2{
+    background:#6B85C1;
+    
+ }
+
+ #radio3{
+     background:#A14830;
+     
+ }
+#radio4{
+    background:#000000;
+}
+
