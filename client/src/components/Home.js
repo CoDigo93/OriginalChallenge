@@ -1,6 +1,5 @@
 import React from 'react'
 import Navbar from './Navbar'
-import Carrossel from './Carrossel'
 import Products from './Products'
 import Footer from './Footer'
 
@@ -10,7 +9,6 @@ const Home = () => {
       <Navbar/>
        <main className='main'>
           
-          <Carrossel/>
           <Products/>
           <Footer/>
         </main>

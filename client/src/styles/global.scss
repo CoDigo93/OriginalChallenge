@@ -1,29 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap');
 @import './product_colors';
 @import './product_sizes';
 @import './product_prices';
 @import './product';
 @import './footer';
+@import './carrossel';
+@import './navbar';
 
 *{
     padding:0;
     margin:0;
     border:0;
-    vertical-align: baseline;
     list-style:none;
+    text-decoration:none;
     font-family: 'Montserrat' , 'sans-serif';
     
 
 }
+.link{
+    text-decoration:none;
+    color:#686868;
+}
+.sections{
+    display:none;
+}
 
+@media (max-width:999px){
 #root{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    overflow:hidden !important;
 
 }
-
+.div-logoweb{
+    display:none;
+}
 .main{
     height: 100%;
     width: 100%;
@@ -33,37 +46,8 @@
     justify-content: space-evenly;
     
 }
-
 h1,h2,h3,h4,h5{
     color: #DE8F75;
     font-family: 'Montserrat' , 'sans-serif';
 }
-
-
-
-.navbar{
-    width: 100%;
-    margin: 5% 0 0 0;
-    display: flex;
-    flex:1;
-    justify-content: space-around;
-}
-
-.navbar .logo{
-    transform: translateX(20%);
-}
-
-.navbar .lupa{
-    transform: translateX(70%);
-}
-
-.navbar__bag{
-    position:relative;
-    display:flex;
-    align-items:flex-end;
-    justify-content:center;
-    span{
-        position:absolute;
-        
-    }
 }

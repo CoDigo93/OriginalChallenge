@@ -1,0 +1,114 @@
+@media (max-width:999px){
+    .navbar{
+        width: 100%;
+        margin: 5% 0 0 0;
+        display: flex;
+        flex:1;
+        justify-content: space-around;
+        align-items:center;
+        .logo{
+            transform:translateX(10%);
+        }
+        .navbar__sign{
+            display:none;
+        }
+        .navbar__search{
+            
+            p{
+                display:none;
+            }
+        }
+    }
+    
+    .navbar__rightside{
+        display:flex;
+        flex-direction:row;
+        align-items:baseline;
+        justify-content:space-around;
+        gap:5vw;
+        
+        
+    }
+    
+    .navbar__bag{
+        position:relative;
+        display:flex;
+        align-items:flex-end;
+        justify-content:center;
+        span{
+            position:absolute;
+            
+        }
+    }
+    
+
+}
+
+@media (min-width:1000px){
+    
+    .div-logoweb{
+        width:100%;
+        display:flex;
+        flex:1;
+        align-items:center;
+        justify-content:center;
+        border:0;
+        height:86px;
+
+        .logo--web{
+            min-width:145px;
+            min-height:45px;
+        }
+    }
+    .navbar{
+        min-height:50px;
+        border-top: 2px solid #CCCCCC;
+        border-bottom:2px solid #CCCCCC;
+        display:flex;
+        align-items:center;
+        justify-content:space-around;
+        .logo{
+            display:none;
+        }
+        .navigation{
+            display:none;
+        }
+        .navbar__sign{
+            color:#686868;
+            display:flex;
+            align-items:center;
+            justify-content:space-around;
+            width:7vw;
+            
+        }
+        .sections{
+            display:flex;
+            align-items:center;
+            justify-content:space-evenly;
+            min-width:30vw;
+            -webkit-font-smoothing:antialiased;
+        }
+        .navbar__rightside{
+            display:flex;
+            align-items:center;
+            gap:2vw;
+        }
+        .navbar__search{
+            display:flex;
+            align-items:center;
+            justify-content:space-around;
+            gap:0.5vw;
+            border-bottom:1px solid rgba(104, 104, 104, 0.4);
+            height:35px;
+            p{
+                font-size:13px;
+                -webkit-font-smoothing:antialiased;
+            }
+            .lupa{
+                height:28px;
+                width:28px;
+                float:right;
+            }
+        }
+    }
+}
