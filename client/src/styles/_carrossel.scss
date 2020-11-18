@@ -1,12 +1,93 @@
+@media(max-width:999px){
+    .carrossel{
+        .thumb,.big{
+            display:none;
+        }
+        .big__featured{
+            margin-top: 5rem;
+            position: relative;
+        }
+        a > input{
+            display:none;
+        }
+        .carrossel__manual-btn {
+            display:flex;
+            width:70%;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            z-index:1000;
+            position:absolute;
+            margin-top:-30px;
+            .manual-btn{
+                border:2px solid #ffffff;
+                padding:5px;
+                border-radius:10px;
+                transition:.4s;        
+                
+            }
+            .manual-btn:not(:last-child){
+                margin-right:1rem;
+            }
+            .manual-btn:hover{
+                background: #DE8F75;
+            }
+        }
+        
+}
+}
 @media (min-width:1000px){
     
     .product__carrossel{
-        
+        max-width:100%;
         display:flex;
         flex-direction:row;
         align-items:center;
-        justify-content: center;
-        gap:106px;
+        justify-content: space-around;
+        gap:10vw;
     }
-            
-}
+    input,label{
+        display:none;
+    }
+    .carrossel{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        height:45rem;
+        width:45rem;
+        overflow: hidden;
+        margin: 0 auto;
+        a,video{
+            float: left;
+            margin:5% 0 0 10%;
+            width: 10%;
+        }
+        .big{
+            position: absolute;
+            top:760px;
+            right:-20px;
+            height:80% ;
+            -webkit-transition: top 1s ease;
+            -moz-transition:top 1s ease;
+            -o-transition: top 1s ease;
+            -ms-transition:top 1s ease;
+            transition: top 1s ease;
+        }
+        .big__featured{
+            top: 80px;
+            right:-20px;
+            height:80%;
+            z-index: -3;
+            position: absolute;
+        }
+        a:hover .thumb{
+            -webkit-box-shadow:0px 0px 15px rgba(0,0,0,0.5);
+            -moz-box-shadow:0px 0px 15px rgba(0,0,0,0.5);
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+        }
+        a:hover .big{
+            top:80px;
+        }
+    }
+
+}           
