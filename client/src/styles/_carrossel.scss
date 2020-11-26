@@ -78,10 +78,11 @@
         align-items:center;
         justify-content: space-around;
         gap:10vw;
+        a > input,label{
+            display:none;
+        }
     }
-    a > input,label{
-        display:none;
-    }
+    
     .carrossel{
         display: flex;
         flex-direction: column;

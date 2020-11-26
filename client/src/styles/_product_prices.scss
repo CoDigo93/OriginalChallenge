@@ -1,5 +1,16 @@
 
 @media (min-width:1000px){
+    .product__prices{
+
+        .product__prices--liquidation{
+            font-size:14px;
+        }
+        .product__prices--normal{
+            font-size:20px;
+            font-weight:700;
+        }
+    }
+    
     .product__prices--web{
         section{
             display:flex;

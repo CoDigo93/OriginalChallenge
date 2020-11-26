@@ -10,23 +10,34 @@ const Footer = () => {
     return (
         
         <footer className='footer'>
-            <ul>
-                <li><div>INSTITUCIONAL <span> + </span></div></li>
-                <li><div>INFORMAÇÕES <span> + </span></div></li>
-                <li><div>CONHEÇA <span> + </span></div></li>
-            </ul>
-            <div className='footer__logos'>
-                <div id='layer1'>
-                    <img src={faceIcon} alt='face' />
-                    <img src={instaIcon} alt='insta' />
-                    <img src={pinterestIcon} alt='pinterestIcon' />
+            <div className='div-masterAndlogos'>
+                <div className='footer__master'>
+                    <p>INSTITUCIONAL <span> + </span></p>
+                    <p>INFORMAÇÕES <span> + </span></p>
+                    <p>CONHEÇA <span> + </span></p>
+                        <p>A Marca</p>
+                        <p>Lojas</p>
+                        <p>Contato</p>
+                        <p>Formas de Pagamento</p>
+                        <p>Trocas e Devoluções</p>
+                        <p>Cuidado com o Produto</p>
+                        <p>Franquias e Multimarcas</p>
+                        <p>Trabalhe com a Gente</p>
+                        <p>Procon-RJ</p>
                 </div>
-                <div id='layer2'>
-                    <img src={vtexIcon} alt='vtex' />
-                    <img src={ebitIcon} alt='ebit' />
+                <div className='footer__logos'>
+                    <div id='layer1'>
+                        <img src={faceIcon} alt='face' />
+                        <img src={instaIcon} alt='insta' />
+                        <img src={pinterestIcon} alt='pinterestIcon' />
+                    </div>
+                    <div id='layer2'>
+                        <img src={vtexIcon} alt='vtex' />
+                        <img src={ebitIcon} alt='ebit' />
+                    </div>
                 </div>
             </div>
-        
+
             <form className='footer__form'>
                 <h3>ASSINE NOSSA NEWS</h3>
                 
@@ -44,10 +55,6 @@ const Footer = () => {
                     
                 </div>
                 <button>ENVIAR</button>
-                
-                
-                       
-                
                 
             </form>
             <div className='footer__info'>

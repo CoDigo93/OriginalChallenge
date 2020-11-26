@@ -4,6 +4,8 @@ import ProductColors from './ProductColors'
 import ProductSuggestion from './ProductSuggestion'
 import Carrossel from './Carrossel'
 
+const ProductDescription = 'Rasteira em atanado soft com tira no dedo e fechamento de fivela. Possui sola sempre na cor do cabedal.'
+
 const Products = () => {
     return (
       <>  
@@ -33,14 +35,21 @@ const Products = () => {
                 </section>
                 
                 <button>ADICIONAR À SACOLA</button>
+                
+                <div className='product__description--web'>
+                  
+                    <span>{ProductDescription}</span>
+                </div>
+            
             </div>
           </div>
         </div>
         
       </div>
+
         <div className='product__description'>
           <p >Descrição</p>
-          <span>Rasteira em atanado soft com tira no dedo e fechamento de fivela. Possui sola sempre na cor do cabedal.</span>
+            <span>{ProductDescription}</span>
         </div>
         <ProductSuggestion />
       

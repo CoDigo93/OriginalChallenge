@@ -3,6 +3,10 @@ import purses from '../assets/bolsas.svg'
 import sandals from '../assets/prod02.svg'
 import arrowRight from '../assets/chevron-right.svg'
 import arrowLeft from '../assets/chevron-left.svg'
+import sandals2 from '../assets/sandals2.svg'
+import purse2 from '../assets/purse2.svg'
+import ColorsPicker from './ColorsPicker'
+
 
 const ProductSuggestion = () => {
     return (
@@ -10,14 +14,26 @@ const ProductSuggestion = () => {
       <div className='product__suggestion'>
         <h2>QUEM VIU, VIU TAMBÉM</h2>
           <div className='product__images'>
+          
+          <ul>
+              <li><img src={purse2}  alt='bolsas' /></li>
+              <li><p>R$204,90</p><span><ColorsPicker/></span></li> 
+              
+              <li><p className='product__images--parceled'>Ou 6x de R$34,15</p></li>
+            </ul>
+          <ul>
+              <li><img src={sandals2}  alt='bolsas' /></li>
+              <li><p>R$204,90</p><span><ColorsPicker/></span></li>
+              <li><p className='product__images--parceled'>Ou 6x de R$34,15</p></li>
+            </ul>
             <ul>
               <li><img src={purses}  alt='bolsas' /></li>
-              <li><p>R$204,90</p></li>
+              <li><p>R$204,90</p><span><ColorsPicker/></span></li>
               <li><p className='product__images--parceled'>Ou 6x de R$34,15</p></li>
             </ul>
             <ul>
               <img src={sandals} alt='bolsas' width='138px' height='178,35'/>
-                  <li><p>R$204,90</p></li>
+                  <li><p>R$204,90</p><span><ColorsPicker/></span></li>
                   <li><p className='product__images--parceled'>Ou 6x de R$34,15</p></li>
             </ul>
           </div>
