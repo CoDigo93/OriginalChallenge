@@ -12,18 +12,23 @@ const Footer = () => {
         <footer className='footer'>
             <div className='div-masterAndlogos'>
                 <div className='footer__master'>
-                    <p>INSTITUCIONAL <span> + </span></p>
-                    <p>INFORMAÇÕES <span> + </span></p>
-                    <p>CONHEÇA <span> + </span></p>
-                        <p>A Marca</p>
-                        <p>Lojas</p>
-                        <p>Contato</p>
-                        <p>Formas de Pagamento</p>
-                        <p>Trocas e Devoluções</p>
-                        <p>Cuidado com o Produto</p>
-                        <p>Franquias e Multimarcas</p>
-                        <p>Trabalhe com a Gente</p>
-                        <p>Procon-RJ</p>
+                    <ul><p>INSTITUCIONAL <span> + </span></p>
+                        <li><p>A Marca</p></li>
+                        <li><p>Lojas</p></li>
+                        <li><p>Contato</p></li>
+                    </ul>
+                    <ul><p>INFORMAÇÕES <span> + </span></p>
+                        <li><p>Formas de Pagamento</p></li>
+                        <li><p>Trocas e Devoluções</p></li>
+                        <li><p>Cuidado com o Produto</p></li>
+                    </ul>
+                   
+                    <ul><p>CONHEÇA <span> + </span></p>
+                        <li><p>Franquias e Multimarcas</p></li>
+                        <li><p>Trabalhe com a Gente</p></li>
+                        <li><p>Procon-RJ</p></li>
+                    </ul>   
+                        
                 </div>
                 <div className='footer__logos'>
                     <div id='layer1'>
