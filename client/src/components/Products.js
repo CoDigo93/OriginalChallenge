@@ -1,14 +1,23 @@
-import React from 'react'
+import React,{useState} from 'react'
 import ProductSizes from './ProductSizes'
 import ProductColors from './ProductColors'
 import ProductSuggestion from './ProductSuggestion'
 import Carrossel from './Carrossel'
+import ConfirmPurchase from './ConfirmPurchase'
 
 const ProductDescription = 'Rasteira em atanado soft com tira no dedo e fechamento de fivela. Possui sola sempre na cor do cabedal.'
 
 const Products = () => {
+  const [confirmation, setConfirmation] = useState(false);
+
+  function showConfirmation(){
+    setConfirmation(true)
+  }
+  
+  
     return (
       <>  
+      {confirmation ? <ConfirmPurchase onClose={() => setConfirmation(false)}/>:null}
       <div className='product__main'>
         <div className='product__carrossel'> 
             <Carrossel/>
@@ -34,7 +43,7 @@ const Products = () => {
                   <p>Ou 6x de R$ 9,20</p>
                 </section>
                 
-                <button>ADICIONAR À SACOLA</button>
+                <button onClick={showConfirmation}>ADICIONAR À SACOLA</button>
                 
                 <div className='product__description--web'>
                   
