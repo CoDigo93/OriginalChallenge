@@ -48,6 +48,12 @@
         }
         button{
             width:90% !important;
+            cursor: pointer;
+            outline: none;
+            transition: .4s;
+        }
+        button:hover{
+            background: #0b8381be;
         }
     }
 }
