@@ -17,7 +17,7 @@ const Products = () => {
   
     return (
       <>  
-      {confirmation ? <ConfirmPurchase onClose={() => setConfirmation(false)}/>:null}
+      {confirmation ? <ConfirmPurchase onClose={() => setConfirmation(false)}/> :null}
       <div className='product__main'>
         <div className='product__carrossel'> 
             <Carrossel/>
