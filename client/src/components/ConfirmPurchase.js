@@ -14,9 +14,10 @@ const ConfirmPurchase = ({onClose }) => {
 
     return (
         <>
+
+        {(!showShoppingCart) ? 
         <div id='modal'>
-            {(!showShoppingCart) ? 
-            
+                
             <div className='confirm-purchase'>
                 <h3>PRODUTO ADICIONADO COM SUCESSO!</h3>
                 <button onClick={onClose} className='modal__button--close'/>
@@ -24,9 +25,10 @@ const ConfirmPurchase = ({onClose }) => {
                 <button onClick={onConfirm} className='modal__button--confirm'>FINALIZAR COMPRA</button>
                 <Link onClick={onClose} id='link' to='/'>Continuar Comprando</Link>
             </div> 
-            : <ShoppingCart /> }
-
         </div>
+        
+        : <ShoppingCart onClose = {onClose} /> }
+        
         </>
     )
 }

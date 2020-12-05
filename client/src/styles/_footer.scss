@@ -84,7 +84,7 @@
             input:focus ~ label,
             input:active ~ label,
             input:not(:placeholder-shown) ~ label{
-                position: absolute;;
+                position: absolute;
                 font-size:11px;
                 transform:translateY(-1rem);
 
@@ -96,7 +96,12 @@
                 border-radius: 3px;
                 width:110px;
                 height:50px;
+                transition: .4s;
+                cursor: pointer;
             }   
+            button:hover{
+                background: #cf6f4f;
+            }
         }
 
         .footer__info{

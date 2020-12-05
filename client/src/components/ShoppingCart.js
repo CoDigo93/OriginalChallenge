@@ -2,57 +2,63 @@ import React from 'react'
 import sandals from '../assets/sandals2.svg'
 import bolsas from '../assets/bolsas.svg'
 
-const ShoppingCart = () => {
+const ShoppingCart = ({onClose}) => {
     
     return (
+    <div className='modal__shoppingCart'>
+        
         <div className='shoppingCart'>
-           <header className='shoppingCart__header'>  
-                <span>SACOLA</span>
-                <span>5 itens</span>
-            </header>
-            <ul>
-                <li>
-                    <div className='shoppingCart__info-product'>
-                        <img src={sandals} alt='shopping'/>
-                        <p>Rasteira Tira Dedo</p>
-                        <span>R$49,90</span>
-                    </div>
-                    
-                    <div className='shoppingCart__counter'>
-                        <span>-</span>
-                        <span>01</span>
-                        <span>+</span>
-                    </div>
-                </li>
-                <li>
-                    <div className='shoppingCart__info-product'>
-                        <img src={bolsas} alt='shopping'/>
-                        <p>Bolsa Tressê Rolotê</p>
-                        <span>R$29,90</span>
-                    </div>
-                    
-                    <div className='shoppingCart__counter'>
-                        <span>-</span>
-                        <span>01</span>
-                        <span>+</span>
-                    </div>
-                </li>
-            </ul>
-
-            <footer className='shoppingCart__footer'>
-                <div className='shoppingCart__footer--top'>
-                    <p>Faltam R$ xx,xx para você Ganhar Frete Grátis</p>
-                </div>
-                
-                <div className='shoppingCart__footer--bottom'>
-                    <span>Total: R$ 149,00</span>
-                    <button>FINALIZAR COMPRA</button>
-                    <p>até 3x de R$49,00 sem juros</p>
+            <button onClick={onClose} className='modal__button--close'/>       
+                <header className='shoppingCart__header'>  
+                        <span>SACOLA</span>
+                        <span>5 itens</span>
+                    </header>
+                    <div  className='shoppingCart__items'>
+                    <ul>
+                        <li>
+                            <div className='shoppingCart__info-product'>
+                                <img src={sandals} alt='shopping'/>
+                                <p>Rasteira Tira Dedo</p>
+                                <span>R$49,90</span>
+                            </div>
                             
+                            <div className='shoppingCart__counter'>
+                                <span>-</span>
+                                <span>01</span>
+                                <span>+</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div className='shoppingCart__info-product'>
+                                <img src={bolsas} alt='shopping'/>
+                                <p>Bolsa Tressê Rolotê</p>
+                                <span>R$29,90</span>
+                            </div>
+                            
+                            <div className='shoppingCart__counter'>
+                                <span>-</span>
+                                <span>01</span>
+                                <span>+</span>
+                            </div>
+                        </li>
+                    </ul>
+
                 </div>
+                <footer className='shoppingCart__footer'>
+                    <div className='shoppingCart__footer--top'>
+                        <p>Faltam R$ xx,xx para você Ganhar Frete Grátis</p>
+                    </div>
+                    
+                    <div className='shoppingCart__footer--bottom'>
+                        <span>Total: R$ 149,00</span>
+                        <button>FINALIZAR COMPRA</button>
+                        <p>até 3x de R$49,00 sem juros</p>
+                                
+                    </div>
+                    
+                </footer>
                 
-            </footer>
-            
+            </div>
         </div>
     )
 }
