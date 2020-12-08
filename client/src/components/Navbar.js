@@ -28,12 +28,15 @@ const Navbar = () => {
            <img className='logo' src={logo} width ='110px' height ='25px' alt='logo' />
            
           <div className='navbar__rightside'>
-            <div className='navbar__search'>
-              <img className='lupa' src={lupa} alt='logo' /> 
-              <p>Busca</p>
-            </div>
+            
+            <input className='navbar__search'
+                   type='search'
+                   name='search'
+                   placeholder='Busca'/>
+               
+              
             <div className='navbar__bag'>
-              <img src={bag} alt='logo' /><span>0</span>
+              <img src={bag} alt='logo' /><span>5</span>
             </div>
           </div>
        </nav> 

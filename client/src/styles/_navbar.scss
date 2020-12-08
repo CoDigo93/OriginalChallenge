@@ -93,24 +93,44 @@
         .navbar__rightside{
             display:flex;
             align-items:center;
-            gap:2vw;
+            justify-content: flex-end;
+            label{
+                right:10px;
+                position: relative;
+            }
+            input{
+                margin-right: 2rem;
+                background:url('../assets/Union.svg') no-repeat 9px center;
+                padding-left: 40px;
+            }
+            .navbar__bag {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                span{
+                position: absolute;
+                font-size: 12px;
+                transform: translateY(2px);
+
+            }
+            
         }
+    }
         .navbar__search{
             display:flex;
             align-items:center;
-            justify-content:space-around;
-            gap:0.5vw;
             border-bottom:1px solid rgba(104, 104, 104, 0.4);
             height:35px;
-            p{
-                font-size:13px;
-                -webkit-font-smoothing:antialiased;
-            }
-            .lupa{
-                height:28px;
-                width:28px;
-                float:right;
-            }
+            outline: none;
+            width:100px;
+            left:50px;
+            transition:.4s;
+            
+            
+        }
+        input[type=search]:focus{
+            width:170px !important;
         }
     }
 }
