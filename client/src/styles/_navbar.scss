@@ -6,6 +6,40 @@
         flex:1;
         justify-content: space-around;
         align-items:center;
+        z-index:0;
+        background:#fff;
+        .navbar__search--mobile{
+            width:100%;
+            height:45px;
+            position:absolute;
+            z-index:10000;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            transition:.4s;
+            background:white;
+            left:0%;
+            top:-10%;
+            &:before{
+               content:url('../assets/Union.svg');
+               transform: translateX(100%);
+            }
+            
+            
+            input[name='search-mobile']{
+                transition: all .4s;
+                width:90%;
+                height:80%;
+                outline:none;
+                border-bottom:1px solid rgba(104, 104, 104, 0.4);
+                border-radius:3px;
+                padding-left: 30px;
+            }
+            label{
+                padding:10px;
+            }
+            
+        }
         .logo{
             transform:translateX(10%);
         }
@@ -26,7 +60,27 @@
         align-items:baseline;
         justify-content:space-around;
         gap:5vw;
-        
+        input[name='search']{
+            display:none;
+            
+        }
+        input[name='search-mobile']{
+            height:80%;
+            width:80%;
+            
+          
+            
+        }
+        label:hover ~ .navbar__search--mobile{
+            left:0%;
+            top:1%;
+            display:flex;
+        }
+        .navbar__search--mobile:hover{
+            left:0% !important;
+            top:1% !important;
+            display:flex !important;
+        }
         
     }
     
@@ -95,8 +149,7 @@
             align-items:center;
             justify-content: flex-end;
             label{
-                right:10px;
-                position: relative;
+                display: none;
             }
             input{
                 margin-right: 2rem;
@@ -117,6 +170,9 @@
             
         }
     }
+        .navbar__search--mobile{
+            display:none;
+        }
         .navbar__search{
             display:flex;
             align-items:center;
