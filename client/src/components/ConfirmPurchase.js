@@ -1,11 +1,11 @@
-import React, {useState} from 'react'
+import React from 'react'
 import sandals from '../assets/sandals2.svg'
 import {Link} from 'react-router-dom'
 import ShoppingCart from './ShoppingCart'
-
+import {useShoppingCart} from '../context/ShoppingCart'
 
 const ConfirmPurchase = ({onClose }) => {
-    const [showShoppingCart, setShowShoppingCart] = useState(false)
+    const {showShoppingCart, setShowShoppingCart} = useShoppingCart()
 
     function onConfirm(){
         setShowShoppingCart(true);
@@ -27,7 +27,7 @@ const ConfirmPurchase = ({onClose }) => {
             </div> 
         </div>
         
-        : <ShoppingCart onClose = {onClose} /> }
+        : <ShoppingCart /> }
         
         </>
     )

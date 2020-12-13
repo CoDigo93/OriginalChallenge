@@ -1,9 +1,13 @@
 import React from 'react'
 import Routes from '../Routes';
+import CartContextProvider from '../context/ShoppingCart';
 
 const App = () => {
   return (
-    <Routes />
+    <CartContextProvider>
+      <Routes />
+    </CartContextProvider>  
+    
   );
 }
 

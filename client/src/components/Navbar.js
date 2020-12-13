@@ -4,11 +4,21 @@ import navicon from '../assets/navicon.svg'
 import lupa from '../assets/Union.svg'
 import logo from '../assets/Vector.svg'
 import bag from '../assets/bag2.svg'
+import {useShoppingCart} from '../context/ShoppingCart'
+import ShoppingCart from './ShoppingCart'
 
 
 const Navbar = () => {
+  const {showShoppingCart,setShowShoppingCart} = useShoppingCart()
+
+  function handleShoppingCart(){
+    setShowShoppingCart(true);
+  }
+  
   return(
     <>
+    {showShoppingCart ? <ShoppingCart /> : null}
+
        <div className='div-logoweb'>
          <img className='logo--web' src={logo} alt='logo' />
        </div>
@@ -47,7 +57,7 @@ const Navbar = () => {
             
             
               
-            <div className='navbar__bag'>
+            <div onClick ={() => handleShoppingCart()} className='navbar__bag'>
               <img src={bag} alt='logo' /><span>5</span>
             </div>
           </div>

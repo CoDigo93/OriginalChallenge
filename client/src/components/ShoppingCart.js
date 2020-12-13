@@ -1,14 +1,15 @@
 import React from 'react'
 import sandals from '../assets/sandals2.svg'
 import bolsas from '../assets/bolsas.svg'
+import {useShoppingCart} from '../context/ShoppingCart'
 
-const ShoppingCart = ({onClose}) => {
-    
+const ShoppingCart = () => {
+    const {showShoppingCart, setShowShoppingCart} = useShoppingCart()
     return (
     <div className='modal__shoppingCart'>
         
         <div className='shoppingCart'>
-            <button onClick={onClose} className='modal__button--close'/>       
+            <button onClick={() => setShowShoppingCart(false)} className='modal__button--close'/>       
                 <header className='shoppingCart__header'>  
                         <span>SACOLA</span>
                         <span>5 itens</span>
