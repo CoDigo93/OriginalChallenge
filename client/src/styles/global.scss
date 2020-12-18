@@ -15,8 +15,38 @@
     border:0;
     list-style:none;
     text-decoration:none;
-    font-family: 'Montserrat' , 'sans-serif';
+    font-family: 'Montserrat' , 'sans-serif' !important;
+    
 
+}
+
+
+//ANIMATIONS
+
+.slide-enter{
+    transform: translateX(-100vw);
+    
+}
+.slide-enter.slide-enter-active{
+    transform:translateX(0vw);
+    transition: transform 300ms;
+}
+
+.slide-exit{
+    transform:translateX(0vw);
+}
+.slide-exit.slide-exit-active{
+    transform:translateX(-100vw);
+    transition: transform 300ms;
+}
+
+
+#root{
+    overflow-x:hidden !important;
+}
+
+h1,h2,h3,h4,h5{
+    font-family: 'Montserrat' , 'sans-serif';
 }
 
 .link{

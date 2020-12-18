@@ -4,7 +4,7 @@ import bolsas from '../assets/bolsas.svg'
 import {useShoppingCart} from '../context/ShoppingCart'
 
 const ShoppingCart = () => {
-    const {showShoppingCart, setShowShoppingCart} = useShoppingCart()
+    const { setShowShoppingCart} = useShoppingCart()
     return (
     <div className='modal__shoppingCart'>
         

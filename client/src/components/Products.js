@@ -4,21 +4,25 @@ import ProductColors from './ProductColors'
 import ProductSuggestion from './ProductSuggestion'
 import Carrossel from './Carrossel'
 import ConfirmPurchase from './ConfirmPurchase'
+import {useSideNavbar} from '../context/MobileSideNavbar'
 
 const ProductDescription = 'Rasteira em atanado soft com tira no dedo e fechamento de fivela. Possui sola sempre na cor do cabedal.'
 
 const Products = () => {
-  const [confirmation, setConfirmation] = useState(false);
+  const [PurchaseConfirmation, setPurchaseConfirmation] = useState(false);
+  const {showSideNavigation} = useSideNavbar();
 
   function showConfirmation(){
-    setConfirmation(true)
+    setPurchaseConfirmation(true)
   }
+
+  
   
   
     return (
       <>  
-      {confirmation ? <ConfirmPurchase onClose={() => setConfirmation(false)}/> :null}
-      <div className='product__main'>
+      {PurchaseConfirmation ? <ConfirmPurchase onClose={() => setPurchaseConfirmation(false)}/> :null}
+      <div className='product__main' style={!showSideNavigation ? {zIndex:0} : {zIndex:-1}}>
         <div className='product__carrossel'> 
             <Carrossel/>
             <div className='product__id'>

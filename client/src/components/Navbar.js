@@ -1,4 +1,5 @@
-import React from 'react';
+import React,{useState} from 'react';
+import {CSSTransition} from 'react-transition-group';
 import {Link} from 'react-router-dom'
 import navicon from '../assets/navicon.svg'
 import lupa from '../assets/Union.svg'
@@ -6,15 +7,34 @@ import logo from '../assets/Vector.svg'
 import bag from '../assets/bag2.svg'
 import {useShoppingCart} from '../context/ShoppingCart'
 import ShoppingCart from './ShoppingCart'
+import {useSideNavbar} from '../context/MobileSideNavbar'
 
 
 const Navbar = () => {
+  const isMobile = true;
   const {showShoppingCart,setShowShoppingCart} = useShoppingCart()
+  const {showSideNavigation, setShowSideNavigation} = useSideNavbar();
+  const [ulSections,setUlSections] = useState('sections')
 
-  function handleShoppingCart(){
+
+
+const handleShoppingCart = () => {
     setShowShoppingCart(true);
+  
+  }
+
+
+
+  const toggleMobileSideNavigation = () => {
+    
+    setShowSideNavigation(!showSideNavigation)
+    showSideNavigation ? setUlSections('sections--active')
+    : 
+    setUlSections(ulSections)
   }
   
+
+
   return(
     <>
     {showShoppingCart ? <ShoppingCart /> : null}
@@ -29,14 +49,56 @@ const Navbar = () => {
            <Link className='link' to='/log-in'>Entrar</Link> |
            <Link className='link' to='/sign-up'>Cadastre-se</Link>
         </div>  
-        <div className='sections'>
-          <Link className='link' to='/sapatos'>SAPATOS</Link>
-          <Link className='link' to='/bolsas'>BOLSAS</Link>
-          <Link className='link' to='/acessorios'>ACESSÓRIOS</Link>
-          <Link className='link' to='/promocao'>OFF</Link>
+        
+        
+          {showSideNavigation ? <div className='modal'></div> : null}
+        
+        
+        <div className='sections__conteiner'>
+        
+          {isMobile  ?
+            <CSSTransition in={showSideNavigation} 
+                           appear={true}
+                           timeout={300} 
+                           classNames='slide'
+                           unmountOnExit
+                           >
+              
+              <ul className= 'sections__mobile'> 
+                <li>
+                  <div className='navbar__sign--mobile'>
+                    <Link className='link' to='/log-in'>Entrar</Link> |
+                    <Link className='link' to='/sign-up'>Cadastre-se</Link>
+                    <button onClick={()=> toggleMobileSideNavigation()} />
+                  </div> 
+              </li>
+                <li><Link className='link' to='/sapatos'>SAPATOS</Link></li>
+                <li><Link className='link' to='/bolsas'>BOLSAS</Link></li>
+                <li><Link className='link' to='/acessorios'>ACESSÓRIOS</Link></li>
+                <li><Link className='link' to='/promocao'>OFF</Link></li>
+              </ul>
+            </CSSTransition>
+            
+            :
+
+            <ul className= 'sections'>
+              <li><Link className='link' to='/sapatos'>SAPATOS</Link></li>
+              <li><Link className='link' to='/bolsas'>BOLSAS</Link></li>
+              <li><Link className='link' to='/acessorios'>ACESSÓRIOS</Link></li>
+              <li><Link className='link' to='/promocao'>OFF</Link></li>
+          </ul>  
+        } 
         </div>
-           <img className='navigation' src={navicon}  alt='navicon' />
-           <img className='logo' src={logo} width ='110px' height ='25px' alt='logo' />
+          <div className='navigation__div' onClick={() => toggleMobileSideNavigation()}>       
+           <img className='navigation'
+                src={navicon}  
+                alt='navicon' />
+          </div>
+           <img className='logo' 
+                src={logo} 
+                width ='110px' 
+                height ='25px' 
+                alt='logo' />
            
            
 
