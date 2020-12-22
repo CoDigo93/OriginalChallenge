@@ -19,7 +19,7 @@ const Navbar = () => {
 
 
 const handleShoppingCart = () => {
-    setShowShoppingCart(true);
+    setShowShoppingCart(!showShoppingCart);
   
   }
 
@@ -37,7 +37,18 @@ const handleShoppingCart = () => {
 
   return(
     <>
-    {showShoppingCart ? <ShoppingCart /> : null}
+    
+          
+      {(isMobile || !isMobile) && (
+          <CSSTransition in={showShoppingCart} 
+                          appear={true}
+                          timeout={400} 
+                          classNames='inverse-slide'
+                          unmountOnExit>
+
+              <ShoppingCart />
+
+        </CSSTransition> )}
 
        <div className='div-logoweb'>
          <img className='logo--web' src={logo} alt='logo' />
@@ -87,7 +98,9 @@ const handleShoppingCart = () => {
               <li><Link className='link' to='/acessorios'>ACESSÓRIOS</Link></li>
               <li><Link className='link' to='/promocao'>OFF</Link></li>
           </ul>  
+        
         } 
+
         </div>
           <div className='navigation__div' onClick={() => toggleMobileSideNavigation()}>       
            <img className='navigation'

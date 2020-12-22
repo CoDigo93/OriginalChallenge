@@ -2,14 +2,27 @@ import React from 'react'
 import sandals from '../assets/sandals2.svg'
 import bolsas from '../assets/bolsas.svg'
 import {useShoppingCart} from '../context/ShoppingCart'
+import {CSSTransition} from 'react-transition-group';
 
 const ShoppingCart = () => {
-    const { setShowShoppingCart} = useShoppingCart()
+    const {showShoppingCart,setShowShoppingCart} = useShoppingCart()
+    
+
+    function toggleShoppingCartOnScreen(){
+        setShowShoppingCart(!showShoppingCart)
+    }
+
     return (
-    <div className='modal__shoppingCart'>
-        
+    
+    <CSSTransition in={showShoppingCart} 
+                    appear={true}
+                    timeout={400} 
+                    classNames='inverse-slide'>
+
+        <div className='modal__shoppingCart'>
+    
         <div className='shoppingCart'>
-            <button onClick={() => setShowShoppingCart(false)} className='modal__button--close'/>       
+            <button onClick={()=> toggleShoppingCartOnScreen()} className='modal__button--close'/>       
                 <header className='shoppingCart__header'>  
                         <span>SACOLA</span>
                         <span>5 itens</span>
@@ -60,7 +73,9 @@ const ShoppingCart = () => {
                 </footer>
                 
             </div>
+            
         </div>
+        </CSSTransition>
     )
 }
 

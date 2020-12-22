@@ -5,6 +5,7 @@ import ProductSuggestion from './ProductSuggestion'
 import Carrossel from './Carrossel'
 import ConfirmPurchase from './ConfirmPurchase'
 import {useSideNavbar} from '../context/MobileSideNavbar'
+import {CSSTransition} from 'react-transition-group'
 
 const ProductDescription = 'Rasteira em atanado soft com tira no dedo e fechamento de fivela. Possui sola sempre na cor do cabedal.'
 
@@ -21,7 +22,22 @@ const Products = () => {
   
     return (
       <>  
-      {PurchaseConfirmation ? <ConfirmPurchase onClose={() => setPurchaseConfirmation(false)}/> :null}
+      
+                   
+      {true &&  
+          <CSSTransition classNames='fade'
+                        timeout={300}
+                        unmountOnExit
+                        in={PurchaseConfirmation}>  
+
+            <ConfirmPurchase onClose={() => setPurchaseConfirmation(false)}/> 
+            
+          </CSSTransition>
+      
+      }
+        
+          
+
       <div className='product__main' style={!showSideNavigation ? {zIndex:0} : {zIndex:-1}}>
         <div className='product__carrossel'> 
             <Carrossel/>
