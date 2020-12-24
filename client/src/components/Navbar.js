@@ -39,7 +39,7 @@ const handleShoppingCart = () => {
     <>
     
           
-      {(isMobile || !isMobile) && (
+      
           <CSSTransition in={showShoppingCart} 
                           appear={true}
                           timeout={400} 
@@ -48,7 +48,7 @@ const handleShoppingCart = () => {
 
               <ShoppingCart />
 
-        </CSSTransition> )}
+        </CSSTransition> 
 
        <div className='div-logoweb'>
          <img className='logo--web' src={logo} alt='logo' />

@@ -24,7 +24,7 @@ const Products = () => {
       <>  
       
                    
-      {true &&  
+      
           <CSSTransition classNames='fade'
                         timeout={300}
                         unmountOnExit
@@ -34,7 +34,7 @@ const Products = () => {
             
           </CSSTransition>
       
-      }
+      
         
           
 

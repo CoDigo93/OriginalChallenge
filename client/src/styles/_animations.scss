@@ -1,0 +1,81 @@
+//MOBILE NAVBAR 
+
+.slide-enter{
+    transform: translateX(-100vw);
+    
+}
+.slide-enter.slide-enter-active{
+    transform:translateX(0vw);
+    transition: transform 300ms ease-in-out;
+}
+
+.slide-exit{
+    transform:translateX(0vw);
+}
+.slide-exit.slide-exit-active{
+    transform:translateX(-100vw);
+    transition: transform 300ms ease-in-out;
+}
+
+///////////////////////////////////////////////
+/*SHOPPING CART*/
+
+.inverse-slide-appear{
+    transform:translateX(100vw);
+}
+.inverse-slide-appear.inverse-slide-appear-active{
+    transform:translateX(0vw);
+    transition: transform 400ms ease-in-out;
+}
+.inverse-slide-exit{
+    transform:translateX(0vw);
+
+}
+.inverse-slide-exit.inverse-slide-exit-active{
+    transform:translateX(100vw);
+    transition:transform 400ms ease-in-out ;
+}
+
+///////////////////////////////////////////////////////
+/*PURCHASE CONFIRMATION */
+
+.fade-enter{
+    opacity:0;
+}
+
+.fade-enter.fade-enter-active{
+    opacity:1;
+    transition: all 300ms ease-in
+}
+
+.fade-exit{
+    opacity:1;
+}
+
+.fade-exit.fade-exit-active{
+    opacity:0;
+    transition: all 300ms ease-in;
+}
+
+/////////////////////////////////////////////////////////
+/*TRANSITION*/
+.transition-enter  {
+  opacity: 0;
+  transform: translateX(100%);
+}
+.transition-enter-active  {
+  opacity: 1;
+  transform: translateX(0%);
+}
+.transition-exit  {
+  opacity: 1;
+  transform: translateX(0%);
+}
+.transition-exit-active  {
+  opacity: 0;
+  transform: translateX(100%);
+}
+.transition-enter-active ,
+.transition-exit-active  {
+  transition: opacity 50ms, transform 50ms;
+}

@@ -3,22 +3,41 @@ import sandals from '../assets/sandals2.svg'
 import {Link} from 'react-router-dom'
 import ShoppingCart from './ShoppingCart'
 import {useShoppingCart} from '../context/ShoppingCart'
-import {CSSTransition} from 'react-transition-group'
+import {CSSTransition, SwitchTransition, TransitionGroup} from 'react-transition-group'
 
 const ConfirmPurchase = ({onClose }) => {
     const {showShoppingCart, setShowShoppingCart} = useShoppingCart()
     const {PurchaseConfirmation, setPurchaseConfirmation} = useState(true)
+    
+    
 
     function onConfirm(){
-        setShowShoppingCart(true);
+        setShowShoppingCart(!showShoppingCart);
+        
+        
         
     }
+    
 
     return (
         <>
         
         
-            {(!showShoppingCart) ? 
+        
+        
+         {(!showShoppingCart) ?
+         <SwitchTransition>
+            <CSSTransition 
+                        key={showShoppingCart}
+                        
+                        addEndListener={(node, done) => node.addEventListener("transitionend", done, true)}
+                        timeout={100}
+                        classNames='transition'
+                        unmountOnExit
+                        
+                        >    
+            
+            
             
                 <div id='modal'>
                         
@@ -32,9 +51,15 @@ const ConfirmPurchase = ({onClose }) => {
                     
                 </div>
             
-            
-            : <ShoppingCart /> }
-
+         
+         </CSSTransition>  
+         </SwitchTransition>
+         :<ShoppingCart/>  
+         }
+         
+         
+        
+     
         
         </>
         
