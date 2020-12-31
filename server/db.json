@@ -1,0 +1,29 @@
+{"products":
+    [
+        {
+            "id":"1",
+            "name":"Rasteira Tira Dedo",
+            "color":"black",
+            "price":59.90,
+            "quantity":0
+            
+        },
+        {
+            "id":"2",
+            "name":"Bolsa Tressê Rolotê",
+            "color":"white",
+            "price":39.90,
+            "quantity":0
+        },
+        {
+            "id":"3",
+            "name":"Bolsa De Couro",
+            "color":"white",
+            "price":100,
+            "quantity":10
+        }
+      ]
+    
+}
+    
+    

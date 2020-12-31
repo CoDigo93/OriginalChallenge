@@ -1,13 +1,13 @@
-import React, {useState} from 'react'
+import React from 'react'
 import sandals from '../assets/sandals2.svg'
 import {Link} from 'react-router-dom'
 import ShoppingCart from './ShoppingCart'
 import {useShoppingCart} from '../context/ShoppingCart'
-import {CSSTransition, SwitchTransition, TransitionGroup} from 'react-transition-group'
+import {CSSTransition, SwitchTransition} from 'react-transition-group'
 
 const ConfirmPurchase = ({onClose }) => {
     const {showShoppingCart, setShowShoppingCart} = useShoppingCart()
-    const {PurchaseConfirmation, setPurchaseConfirmation} = useState(true)
+    
     
     
 
@@ -52,7 +52,7 @@ const ConfirmPurchase = ({onClose }) => {
                 </div>
             
          
-         </CSSTransition>  
+            </CSSTransition>  
          </SwitchTransition>
          :<ShoppingCart/>  
          }

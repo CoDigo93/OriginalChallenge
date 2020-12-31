@@ -248,11 +248,19 @@
         .sections{
             display:flex;
             align-items:center;
-            justify-content:space-evenly;
-            min-width:30vw;
+            justify-content:center;
+            gap:100px;
+            margin-left:100px;
+            width:50vw;
             -webkit-font-smoothing:antialiased;
             font-size:14px;
+            
+            
         }
+         .link:hover{
+                color:#DE8F75;
+                transition:all .2s ease-out;
+            }
         .navbar__rightside{
             display:flex;
             align-items:center;

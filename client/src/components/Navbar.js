@@ -8,15 +8,18 @@ import bag from '../assets/bag2.svg'
 import {useShoppingCart} from '../context/ShoppingCart'
 import ShoppingCart from './ShoppingCart'
 import {useSideNavbar} from '../context/MobileSideNavbar'
+import {useMediaQuery} from 'react-responsive'
+import {useProductList} from '../context/ShoppingCart'
 
 
 const Navbar = () => {
-  const isMobile = true;
+ 
   const {showShoppingCart,setShowShoppingCart} = useShoppingCart()
   const {showSideNavigation, setShowSideNavigation} = useSideNavbar();
   const [ulSections,setUlSections] = useState('sections')
+  const {productList} = useProductList()
 
-
+  const isMobile = useMediaQuery({query:`(max-width: 999px)`});
 
 const handleShoppingCart = () => {
     setShowShoppingCart(!showShoppingCart);
@@ -133,7 +136,7 @@ const handleShoppingCart = () => {
             
               
             <div onClick ={() => handleShoppingCart()} className='navbar__bag'>
-              <img src={bag} alt='logo' /><span>5</span>
+              <img src={bag} alt='logo' /><span>{productList.length}</span>
             </div>
           </div>
           

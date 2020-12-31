@@ -1,0 +1,38 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add json-server
+
+PATH: 
+  %SystemRoot%\system32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Arquivos de Programas\MySQL\MySQL Server 8.0\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft VS Code\bin;C:\Users\Administrador\AppData\Local\atom\bin;C:\Users\Administrador\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Administrador\AppData\Roaming\npm;C:\Users\Administrador\AppData\Local\Yarn\bin
+
+Yarn version: 
+  1.21.1
+
+Node version: 
+  12.14.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: connect ETIMEDOUT 104.16.16.35:443
+      at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+
+npm manifest: 
+  {
+    "name": "server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
