@@ -46,11 +46,11 @@ const Carrossel = () =>{
             <img className='big__featured' src ={produto} alt='produto' />
           </a>
          <div className='carrossel__manual-btn'>
-          <label for='carrossel__radio1' className='manual-btn' />
-          <label for='carrossel__radio2' className='manual-btn' />
-          <label for='carrossel__radio3' className='manual-btn' />
-          <label for='carrossel__radio4' className='manual-btn' />
-          <label for='carrossel__radio5' className='manual-btn' />
+          <label htmlFor='carrossel__radio1' className='manual-btn' />
+          <label htmlFor='carrossel__radio2' className='manual-btn' />
+          <label htmlFor='carrossel__radio3' className='manual-btn' />
+          <label htmlFor='carrossel__radio4' className='manual-btn' />
+          <label htmlFor='carrossel__radio5' className='manual-btn' />
          </div>
         
         </div>

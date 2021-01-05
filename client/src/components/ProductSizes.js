@@ -12,28 +12,28 @@ const ProductSizes = () => {
         
         <form className='product__size__pickers' >
                 <input id='size1' type='radio' name='size'></input>
-                  <label for='size1' className='label'>33</label>
+                  <label htmlFor='size1' className='label'>33</label>
                 
                 <input id='size2' type='radio' name='size'></input>
-                  <label for='size2' className='label'>34</label>
+                  <label htmlFor='size2' className='label'>34</label>
                 
                 <input id='size3' type='radio' name='size'></input>
-                  <label for='size3' className='label'>35</label>
+                  <label htmlFor='size3' className='label'>35</label>
                 
                 <input id='size4' type='radio' name='size'></input>
-                  <label for='size4' className='label'>36</label>
+                  <label htmlFor='size4' className='label'>36</label>
                 
                 <input id='size5' type='radio' name='size'></input>
-                  <label for='size5' className='label'>37</label>
+                  <label htmlFor='size5' className='label'>37</label>
                 
                 <input id='size6' type='radio' name='size'></input>
-                  <label for='size6' className='label'>38</label>
+                  <label htmlFor='size6' className='label'>38</label>
                 
                 <input id='size7' type='radio' name='size'></input>
-                  <label for='size7' className='label'>39</label>
+                  <label htmlFor='size7' className='label'>39</label>
                 
                 <input id='size8' type='radio' name='size'></input>
-                  <label for='size8' className='label'>40</label>
+                  <label htmlFor='size8' className='label'>40</label>
                 
             </form>
     </>

@@ -4,11 +4,12 @@ import ProductItem from './ProductItem'
 
 
 const ProductList = () =>{
-    const {productList, setProductList} = useProductList();
+    const {productList} = useProductList();
 
     return(
-        productList.map(product => 
-            <ProductItem id={product.id}
+        productList.map((product, index) => 
+            <ProductItem key={`product_List_${index + 1}`}
+                         id={product.id}
                          name={product.name}
                          color={product.color}
                          price={product.price}

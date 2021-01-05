@@ -1,24 +1,55 @@
-import React,{createContext,useContext,useState,useEffect} from 'react'
+import React,{createContext,useContext,useState,useEffect, useCallback} from 'react'
 import api from '../Services'
 const CartContext = createContext();
 
  const CartProvider = ({children}) => {
     const[showShoppingCart, setShowShoppingCart] = useState(false)
     const [productList, setProductList] = useState([])
+    const [totalPrice ,setTotalPrice] = useState(0);
 
 
-    useEffect(() => {
-        
+
+    const fetchProductList = useCallback(()=>{
         api.get('/products').then(response => setProductList(response.data));
+
+    },[setProductList])
+
+
+
+
+   const renderOnEveryProductListChange = useCallback(()=>{
+    let total = productList.reduce((acc,elem) => acc + (elem.price * elem.quantity),0)
+
+    setTotalPrice(total.toLocaleString('pt-BR', {
         
-       
-       
-   },[])
+        minimumFractionDigits: 2,  
+        maximumFractionDigits: 2
+    }))
+   },[productList])
+
+
+
+   useEffect(() => {
+        fetchProductList()
+            
+    },[fetchProductList])
+
+   
+    useEffect(()=>{
+        renderOnEveryProductListChange(); 
+        
+    },[ renderOnEveryProductListChange])
+
+    
 
     return(
         <CartContext.Provider
             value={
-                {showShoppingCart,setShowShoppingCart,productList,setProductList}
+                {
+                    showShoppingCart, setShowShoppingCart,
+                    productList, setProductList,
+                    totalPrice ,setTotalPrice
+                }
                 
         }
         >
@@ -44,14 +75,12 @@ export function useProductList(){
     return {productList, setProductList};
 }
 
-export function TotalPrice(){
+export function useTotalPrice(){
     const context = useContext(CartContext);
-    const {productList} = context;
-    let total = productList.reduce((acc,elem) => acc + elem.price,0)
+    if(!context) throw new Error('TotalPrice must be used within CartProvider');
+    const { totalPrice, setTotalPrice} = context;
+    
 
-    return total.toLocaleString('pt-BR', {
-        
-        minimumFractionDigits: 2,  
-        maximumFractionDigits: 2
-      })
+      return {totalPrice, setTotalPrice};
 }
+

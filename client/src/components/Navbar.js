@@ -119,7 +119,7 @@ const handleShoppingCart = () => {
            
 
           <div className='navbar__rightside'>
-            <label for='search-mobile'>
+            <label htmlFor='search-mobile'>
                <img src={lupa} alt='lupa' />
             </label>
             <div className='navbar__search--mobile'>

@@ -50,13 +50,13 @@ const Footer = () => {
                     <input name='name' 
                            type='text'
                            placeholder=' '/> 
-                    <label for='name'>Nome</label>
+                    <label htmlFor='name'>Nome</label>
                 </div>
                 <div id='footer__inputEmail'>    
                     <input name='Email' 
                           type='email'
                           placeholder=' '/>    
-                    <label for='Email'>E-mail</label>
+                    <label htmlFor='Email'>E-mail</label>
                     
                 </div>
                 <button>ENVIAR</button>
