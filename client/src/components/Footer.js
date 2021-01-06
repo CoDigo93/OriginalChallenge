@@ -5,8 +5,11 @@ import pinterestIcon from '../assets/pinterest.svg'
 import vtexIcon from '../assets/vtex-pci-200.svg'
 import ebitIcon from '../assets/selo-ebit.svg'
 import footerLogo from '../assets/white_logo.svg'
+import {useSideNavbar} from '../context/MobileSideNavbar'
 
 const Footer = () => {
+    const {showSideNavigation} = useSideNavbar()
+
     return (
         
         <footer className='footer'>
@@ -43,7 +46,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <form className='footer__form'>
+            <form className='footer__form' style={showSideNavigation ? {zIndex:-1}: {zIndex:0}}>
                 <h3>ASSINE NOSSA NEWS</h3>
                 
                 <div id='footer__inputName'>
