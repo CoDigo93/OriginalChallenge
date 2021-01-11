@@ -13,6 +13,8 @@ const ShoppingCart = () => {
     const [parceledPrice, setParceledPrice] = useState(totalPrice)
    
     
+   
+
     const parcelPrice = useCallback(() => {
         setParceledPrice(parseFloat(totalPrice)/ parseFloat(3)) 
         setParceledPrice(previusPrice => previusPrice.toLocaleString('pt-BR', {

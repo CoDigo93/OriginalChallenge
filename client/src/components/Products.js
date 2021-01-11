@@ -13,10 +13,13 @@ const Products = () => {
   const [PurchaseConfirmation, setPurchaseConfirmation] = useState(false);
   const {showSideNavigation} = useSideNavbar();
 
-  function showConfirmation(){
+  
+  
+  const showConfirmation = () =>{
     setPurchaseConfirmation(true)
   }
 
+  
   
   
   

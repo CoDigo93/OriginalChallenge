@@ -1,68 +1,98 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useCallback} from 'react'
 import sandals from '../assets/sandals2.svg'
 import {useTotalPrice} from '../context/ShoppingCart'
 
-const ProductItem = (props) =>{
-    const [quantity , setquantity] = useState(props.quantity);
-    const [wholeSalePrice] = useState(props.price) 
-    const { setTotalPrice} = useTotalPrice();
+
+
+const ProductItem = ({id, price, onDelete, quantity, name}) =>{
+    const [productQuantity , setquantity] = useState(quantity);
+    const [wholeSalePrice, setWholeSalePrice] = useState(price) 
+    const { setTotalPrice, totalPrice} = useTotalPrice();
     const [incrementWasCalled , setIncrementWasCalled ] = useState(false)
     const [decrementWasCalled, setDecrementWasCalled] = useState(false)
+   
+
+  
+   
+    const sumWholeSalePrice = useCallback(() =>{
+        
+            setWholeSalePrice(previous => previous + price)
+
     
+    },[price])
+
+    const subtractWholeSalePrice = useCallback(() =>{
+        
+            setWholeSalePrice(previous => previous - price)
+    
+    },[price])
 
 
+    
     useEffect(()=>{
-        const subtractFromDecrement = () => {
+        const calcTotalAfterDecrement = () => {
             console.log('subtractFromDecrement called')
-            setTotalPrice(previusTotal  => 
+            setTotalPrice(
     
-                parseInt(previusTotal) - parseInt(props.price)
+                parseFloat( totalPrice) - parseFloat(price)
                 )
+                
         }
 
-        subtractFromDecrement();
+        calcTotalAfterDecrement();
+        
            
-    },[decrementWasCalled, setTotalPrice, props.price])
+    },[decrementWasCalled, setTotalPrice, price, totalPrice])
 
 
 
     useEffect(()=>{
         
-        const sumFromIncrement = () => {
+        const calcTotalAfterIncrement = () => {
             console.log('sumFromIncrement called')
             setTotalPrice(previusTotal  => 
 
-                parseInt(previusTotal) + parseInt(props.price)
+                parseFloat(previusTotal) + parseFloat(price)
                 )
+                
             }
 
-        sumFromIncrement()
+            calcTotalAfterIncrement()
         
-    },[incrementWasCalled, setTotalPrice, props.price])
+        
+    },[incrementWasCalled, setTotalPrice, price])
+
+
 
 
     
 
     const Increment = () =>{
-        setquantity(quantity + 1);
+        setquantity(productQuantity + 1);
+        sumWholeSalePrice();
         setIncrementWasCalled(!incrementWasCalled)
+        
         
     }
 
     const Decrement = () =>{
-        if(quantity > 0){
-            setquantity(quantity - 1);
+        if(productQuantity > 1){
+            setquantity(productQuantity - 1);
+            subtractWholeSalePrice();
             setDecrementWasCalled(!decrementWasCalled)
+            
         }
          
     }
+    
+
 
     return(
         <>
-        <li key={props.id}>
+        <li key={id}>
             <div className='shoppingCart__info-product'>
                 <img src={sandals} alt='shopping'/>
-                <p>{props.name}</p>
+                <p>{name}</p>
                 <span>R${wholeSalePrice.toLocaleString('pt-BR', { 
                                         minimumFractionDigits: 2,  
                                         maximumFractionDigits: 2})}
@@ -71,9 +101,11 @@ const ProductItem = (props) =>{
             
             <div className='shoppingCart__counter'>
                 <button onClick={Decrement}>-</button>
-                <span>{quantity < 10 ? '0' + quantity : quantity}</span>
+                <span>{productQuantity < 10 ? '0' + productQuantity : productQuantity}</span>
                 <button onClick={Increment}>+</button>
+                <button onClick={()=> onDelete(id)} className='shoppingCart__delete-product'></button>
             </div>
+            
         </li>
         </>
     )

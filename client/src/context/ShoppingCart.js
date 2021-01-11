@@ -1,4 +1,4 @@
-import React,{createContext,useContext,useState,useEffect, useCallback} from 'react'
+import React,{createContext,useContext,useState,useEffect, } from 'react'
 import api from '../Services'
 const CartContext = createContext();
 
@@ -6,39 +6,29 @@ const CartContext = createContext();
     const[showShoppingCart, setShowShoppingCart] = useState(false)
     const [productList, setProductList] = useState([])
     const [totalPrice ,setTotalPrice] = useState(0);
+    
 
 
 
-    const fetchProductList = useCallback(()=>{
+    useEffect(() => {
+       const fetchProductList = () =>{
         api.get('/products').then(response => setProductList(response.data));
-
-    },[setProductList])
-
-
-
-
-   const renderOnEveryProductListChange = useCallback(()=>{
-    let total = productList.reduce((acc,elem) => acc + (elem.price * elem.quantity),0)
-
-    setTotalPrice(total.toLocaleString('pt-BR', {
-        
-        minimumFractionDigits: 2,  
-        maximumFractionDigits: 2
-    }))
-   },[productList])
-
-
-
-   useEffect(() => {
-        fetchProductList()
-            
-    },[fetchProductList])
+       }
+       fetchProductList()  
+         
+    },[])
+       
 
    
     useEffect(()=>{
+        const renderOnEveryProductListChange = ()=>{
+            let total = productList.reduce((acc,elem) => acc + (elem.price * elem.quantity),0)
+        
+            setTotalPrice(total)
+           }
         renderOnEveryProductListChange(); 
         
-    },[ renderOnEveryProductListChange])
+    },[productList])
 
     
 
@@ -48,7 +38,8 @@ const CartContext = createContext();
                 {
                     showShoppingCart, setShowShoppingCart,
                     productList, setProductList,
-                    totalPrice ,setTotalPrice
+                    totalPrice ,setTotalPrice,
+                    
                 }
                 
         }
@@ -83,4 +74,6 @@ export function useTotalPrice(){
 
       return {totalPrice, setTotalPrice};
 }
+
+
 
