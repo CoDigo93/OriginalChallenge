@@ -10,7 +10,7 @@ const ProductList = () =>{
 
   
     const deleteProduct = useCallback(id =>{
-        let newProductList = productList.filter(elem => elem.id !== id)
+        let newProductList = [...productList].filter(elem => elem.id !== id)
         setProductList(newProductList); 
   },[setProductList,productList])
 
@@ -23,8 +23,9 @@ const ProductList = () =>{
         {productList.map((product, index) => 
                 <CSSTransition key={product.id}
                 
-                timeout={700} 
+                timeout={1000} 
                 classNames='transition'
+                appear={true}
                 unMountOnExit>
                 <ProductItem key={`product_List_${product.id}`}
                             id={product.id}

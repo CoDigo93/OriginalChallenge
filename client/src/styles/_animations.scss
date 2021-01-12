@@ -59,13 +59,13 @@
 
 /////////////////////////////////////////////////////////
 /*TRANSITION*/
-.transition-enter  {
+.transition-appear  {
   opacity: 0;
-  transform: translateX(100%);
+  transform: translateY(100%);
 }
-.transition-enter-active  {
+.transition-appear-active  {
   opacity: 1;
-  transform: translateX(0%);
+  transform: translateY(0%);
 }
 .transition-exit  {
   opacity: 1;
@@ -77,5 +77,5 @@
 }
 .transition-enter-active ,
 .transition-exit-active  {
-  transition: opacity 350ms, transform 350ms;
+  transition: opacity 500ms, transform 500ms;
 }

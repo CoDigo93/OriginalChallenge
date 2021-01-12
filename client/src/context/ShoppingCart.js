@@ -1,15 +1,19 @@
 import React,{createContext,useContext,useState,useEffect, } from 'react'
-import api from '../Services'
+/*import api from '../Services'*/
+import {getProducts} from '../fakeServer/server'
+
+
 const CartContext = createContext();
+
 
  const CartProvider = ({children}) => {
     const[showShoppingCart, setShowShoppingCart] = useState(false)
     const [productList, setProductList] = useState([])
     const [totalPrice ,setTotalPrice] = useState(0);
+
     
 
-
-
+/*
     useEffect(() => {
        const fetchProductList = () =>{
         api.get('/products').then(response => setProductList(response.data));
@@ -17,12 +21,22 @@ const CartContext = createContext();
        fetchProductList()  
          
     },[])
-       
+     
+*/
+
+    
+    useEffect( ()=>{
+        const fetchData = () =>{
+            const response = getProducts('/products')
+            setProductList(response)
+        }
+        fetchData();
+    },[])
 
    
     useEffect(()=>{
         const renderOnEveryProductListChange = ()=>{
-            let total = productList.reduce((acc,elem) => acc + (elem.price * elem.quantity),0)
+            let total = [...productList].reduce((acc,elem) => acc + (elem.price * elem.quantity),0)
         
             setTotalPrice(total)
            }
