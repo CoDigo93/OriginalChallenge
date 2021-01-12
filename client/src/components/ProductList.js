@@ -1,6 +1,7 @@
 import React,{useCallback} from 'react'
 import {useProductList} from '../context/ShoppingCart'
 import ProductItem from './ProductItem'
+import {CSSTransition, TransitionGroup} from 'react-transition-group'
 
 
 const ProductList = () =>{
@@ -17,19 +18,29 @@ const ProductList = () =>{
 
 
     return(
-        productList.map((product, index) => 
-            <ProductItem key={`product_List_${product.id}`}
-                         id={product.id}
-                         name={product.name}
-                         color={product.color}
-                         price={product.price}
-                         quantity={product.quantity}
-                         onDelete={id => deleteProduct(id)}
-                        />
-
+        
+        <TransitionGroup component={null}>
+        {productList.map((product, index) => 
+                <CSSTransition key={product.id}
+                
+                timeout={700} 
+                classNames='transition'
+                unMountOnExit>
+                <ProductItem key={`product_List_${product.id}`}
+                            id={product.id}
+                            name={product.name}
+                            color={product.color}
+                            price={product.price}
+                            quantity={product.quantity}
+                            onDelete={id => deleteProduct(id)}
+                            />
             
-            )
+                </CSSTransition>
+            )}
+        </TransitionGroup>    
+        
     )
+    
 }
 
 export default ProductList;

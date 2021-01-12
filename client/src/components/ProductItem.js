@@ -4,12 +4,14 @@ import {useTotalPrice} from '../context/ShoppingCart'
 
 
 
+
 const ProductItem = ({id, price, onDelete, quantity, name}) =>{
     const [productQuantity , setquantity] = useState(quantity);
     const [wholeSalePrice, setWholeSalePrice] = useState(price) 
     const { setTotalPrice, totalPrice} = useTotalPrice();
     const [incrementWasCalled , setIncrementWasCalled ] = useState(false)
     const [decrementWasCalled, setDecrementWasCalled] = useState(false)
+    
    
 
   
@@ -28,7 +30,7 @@ const ProductItem = ({id, price, onDelete, quantity, name}) =>{
     },[price])
 
 
-    
+
     useEffect(()=>{
         const calcTotalAfterDecrement = () => {
             console.log('subtractFromDecrement called')
@@ -85,10 +87,14 @@ const ProductItem = ({id, price, onDelete, quantity, name}) =>{
          
     }
     
+   
 
 
     return(
+        
         <>
+        
+
         <li key={id}>
             <div className='shoppingCart__info-product'>
                 <img src={sandals} alt='shopping'/>
@@ -107,7 +113,9 @@ const ProductItem = ({id, price, onDelete, quantity, name}) =>{
             </div>
             
         </li>
+        
         </>
+        
     )
 }
 
