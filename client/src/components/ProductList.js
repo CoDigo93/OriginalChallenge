@@ -7,10 +7,11 @@ import {CSSTransition, TransitionGroup} from 'react-transition-group'
 const ProductList = () =>{
     const {productList, setProductList} = useProductList();
     
+    
 
   
     const deleteProduct = useCallback(id =>{
-        let newProductList = [...productList].filter(elem => elem.id !== id)
+        let newProductList = productList.filter(elem => elem.id !== id)
         setProductList(newProductList); 
   },[setProductList,productList])
 

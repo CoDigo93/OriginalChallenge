@@ -4,7 +4,7 @@
         flex-direction:column;
         justify-content:center;
         align-items:center;
-                
+          
         .thumb{
             display:none;
         }
@@ -87,6 +87,20 @@
             margin:5% 0 0 10%;
             width: 10%;
         }
+        .carrossel__session{
+            width:50%!important;
+            height:45%;
+            display:flex;
+            align-items:baseline;
+            justify-content:flex-start;
+            .link{
+                color:#AEB6C1;
+            }
+            span{
+                color:#AEB6C1;
+                font-weight:700;
+            }
+        }   
         .big{
             position: absolute;
             top:760px;

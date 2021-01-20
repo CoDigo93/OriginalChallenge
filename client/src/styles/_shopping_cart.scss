@@ -177,8 +177,8 @@
                 background:#E3E3E3;
                 display: grid;
                 grid-template-columns:50% 50%;
-                grid-template-rows: 10%;
-                grid-gap:15%;
+                grid-template-rows: 15%!important;
+                grid-row-gap:15%!important;
                 align-items: center;
                 
                 span{
@@ -191,7 +191,6 @@
                 p{
                     color:#686868;
                     font-size:12px;
-                    transform: translateY(-5px);
                     justify-self: center;
                 }
                 button{
@@ -256,6 +255,7 @@
         
     }
     .shoppingCart__footer--bottom{
+        
         span{
             color:#202020 !important;
         }
@@ -263,6 +263,7 @@
             color:#000000!important;
             
         }
+       
     }
 }
 

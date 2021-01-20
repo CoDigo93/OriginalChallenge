@@ -1,43 +1,60 @@
-import React, { useEffect, useState, useCallback } from 'react'
+import React, { useEffect, useState, useReducer } from 'react'
 import {useShoppingCart, useProductList, useTotalPrice} from '../context/ShoppingCart'
 import {CSSTransition} from 'react-transition-group'
 import ProductList from './ProductList'
+import GetTotalReducer from '../context/reducers/GetTotalReducer'
 
 
 
 
 const ShoppingCart = () => {
+
+    const {total, setTotal} = useTotalPrice()
     const {showShoppingCart,setShowShoppingCart} = useShoppingCart()
     const {productList} = useProductList()
-    const {totalPrice, setTotalPrice} = useTotalPrice();
-    const [parceledPrice, setParceledPrice] = useState(totalPrice)
-   
-    
-   
 
-    const parcelPrice = useCallback(() => {
-        setParceledPrice(parseFloat(totalPrice)/ parseFloat(3)) 
-        setParceledPrice(previusPrice => previusPrice.toLocaleString('pt-BR', {
+    const getTotal = () =>{
+        const total = productList.reduce((acc, product) =>
+        acc + (parseFloat(product.price) * parseFloat(product.quantity)),0)
+
+        setTotal(total)
+        return total
+    }
+
+    const initialState = {
+        List:productList,
+        totalPrice:getTotal()
         
-            minimumFractionDigits: 2,  
-            maximumFractionDigits: 2
-          }))
+    }
+    const [state ,dispatch] = useReducer(GetTotalReducer,initialState);
+    
 
-          
-    },[totalPrice])
+    const {totalPrice} = state
+   
+    const [parceledPrice, setParceledPrice] = useState(totalPrice)
 
 
     useEffect(() => {
-        setTotalPrice(totalPrice)
+        const parcelPrice = () =>{
+            setParceledPrice(parseFloat(total) / parseFloat(3)) 
+            setParceledPrice(previusPrice => previusPrice.toLocaleString('pt-BR', {
+            
+                minimumFractionDigits: 2,  
+                maximumFractionDigits: 2
+            }))
+
+        }
         parcelPrice();
         
-    },[totalPrice, setTotalPrice, parcelPrice])
+    },[total])
 
     
 
 
     const toggleShoppingCartOnScreen = () =>{
+        dispatch({type:'GET_TOTAL'})
         setShowShoppingCart(!showShoppingCart)
+        
     }
 
     return (
@@ -68,13 +85,17 @@ const ShoppingCart = () => {
                     </div>
                     
                     <div className='shoppingCart__footer--bottom'>
-                        <span>Total: R$ {totalPrice.toLocaleString('pt-BR', {
+                        <span>Total: R$ {total.toLocaleString('pt-BR', {
         
         minimumFractionDigits: 2,  
         maximumFractionDigits: 2
       })}</span>
                         <button>FINALIZAR COMPRA</button>
-                        <p>até 3x de {parceledPrice} sem juros</p>
+                        <p>até 3x de {parceledPrice.toLocaleString('pt-BR', {
+        
+        minimumFractionDigits: 2,  
+        maximumFractionDigits: 2
+      })} sem juros</p>
                                 
                     </div>
                     

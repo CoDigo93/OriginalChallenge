@@ -1,11 +1,18 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import produto from '../assets/prod02.svg'
 import thumb from '../assets/thumb.svg'
 
 const Carrossel = () =>{
     return(
         <>
+        
         <div className='carrossel'>
+          <div className='carrossel__session'>
+            <Link className='link' to='/'> Home </Link>  
+            <Link className='link' to='/'><span>/&nbsp;&nbsp;Sapatos</span> </Link>
+          </div>
+
            <a href='/#'>
             <input id='carrossel__radio1' type='radio' name='radio'/>
             <img className='thumb' src ={thumb}  alt='produto' />

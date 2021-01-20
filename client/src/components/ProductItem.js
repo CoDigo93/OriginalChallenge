@@ -1,96 +1,68 @@
-import React,{useState,useEffect,useCallback} from 'react'
+import React,{useReducer} from 'react'
 import sandals from '../assets/sandals2.svg'
-import {useTotalPrice} from '../context/ShoppingCart'
+import {useProductList} from '../context/ShoppingCart'
+import CounterReducer from '../context/reducers/CounterReducer'
+import {IncrementQuantity, DecrementQuantity} from '../context/actions/CounterActions'
+ 
+
+
 
 
 
 
 const ProductItem = ({id, price, onDelete, quantity, name}) =>{
-    const [productQuantity , setquantity] = useState(quantity);
-    const [wholeSalePrice, setWholeSalePrice] = useState(price) 
-    const { setTotalPrice, totalPrice} = useTotalPrice();
-    const [incrementWasCalled , setIncrementWasCalled ] = useState(false)
-    const [decrementWasCalled, setDecrementWasCalled] = useState(false)
     
+const {productList, setProductList} = useProductList()    
+    
+    const initialState ={
+        productQuantity:quantity,
+        wholeSalePrice:price,
+        price:price,
+        
+        
+    }
+
+    
+  
+    const [stateCounter, dispatch] = useReducer(CounterReducer,initialState)
+    
+    const {productQuantity, wholeSalePrice} = stateCounter  
    
 
   
-   
-    const sumWholeSalePrice = useCallback(() =>{
-        
-            setWholeSalePrice(previous => previous + price)
-
-    
-    },[price])
-
-    const subtractWholeSalePrice = useCallback(() =>{
-        
-            setWholeSalePrice(previous => previous - price)
-    
-    },[price])
-
-
-
-    useEffect(()=>{
-        const calcTotalAfterDecrement = () => {
-            console.log('subtractFromDecrement called')
-            setTotalPrice(
-    
-                parseFloat( totalPrice) - parseFloat(price)
-                )
-                
-        }
-
-        calcTotalAfterDecrement();
-        
-           
-    },[decrementWasCalled, setTotalPrice, price, totalPrice])
-
-
-
-    useEffect(()=>{
-        
-        const calcTotalAfterIncrement = () => {
-            console.log('sumFromIncrement called')
-            setTotalPrice(previusTotal  => 
-
-                parseFloat(previusTotal) + parseFloat(price)
-                )
-                
-            }
-
-            calcTotalAfterIncrement()
-        
-        
-    },[incrementWasCalled, setTotalPrice, price])
-
-
-
-
-    
-
-    const Increment = () =>{
-        setquantity(productQuantity + 1);
-        sumWholeSalePrice();
-        setIncrementWasCalled(!incrementWasCalled)
+    const Increment = id => {
+        dispatch(IncrementQuantity())
+        updateQuantityOnListElement()
         
         
     }
+    
 
-    const Decrement = () =>{
-        if(productQuantity > 1){
-            setquantity(productQuantity - 1);
-            subtractWholeSalePrice();
-            setDecrementWasCalled(!decrementWasCalled)
+    const Decrement = id =>{
+        let newProductList = [...productList]
+        let foundIndex = newProductList.findIndex(product => product.id === id)
+        
+        if(newProductList[foundIndex].quantity > 1){
+            dispatch(DecrementQuantity())
+            newProductList[foundIndex].quantity = productQuantity - 1
+            setProductList(newProductList)
+        
+        }
             
-        }
-         
+        
     }
-    
-   
 
-
-    return(
+    const updateQuantityOnListElement = () =>{
+        let newProductList = [...productList]
+        let foundIndex = newProductList.findIndex(product => product.id === id)
+        
+            newProductList[foundIndex].quantity = productQuantity + 1
+      
+        
+        
+        setProductList(newProductList)
+    }
+  return(
         
         <>
         
@@ -106,9 +78,9 @@ const ProductItem = ({id, price, onDelete, quantity, name}) =>{
             </div>
             
             <div className='shoppingCart__counter'>
-                <button onClick={Decrement}>-</button>
+                <button onClick={()=>Decrement(id)}>-</button>
                 <span>{productQuantity < 10 ? '0' + productQuantity : productQuantity}</span>
-                <button onClick={Increment}>+</button>
+                <button onClick={()=>Increment(id)}>+</button>
                 <button onClick={()=> onDelete(id)} className='shoppingCart__delete-product'></button>
             </div>
             

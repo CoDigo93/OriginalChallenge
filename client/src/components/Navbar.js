@@ -81,25 +81,25 @@ const handleShoppingCart = () => {
               <ul className= 'sections__mobile'> 
                 <li>
                   <div className='navbar__sign--mobile'>
-                    <Link className='link' to='/log-in'>Entrar</Link> |
-                    <Link className='link' to='/sign-up'>Cadastre-se</Link>
+                    <Link className='link' to='/'>Entrar</Link> |
+                    <Link className='link' to='/'>Cadastre-se</Link>
                     <button onClick={()=> toggleMobileSideNavigation()} />
                   </div> 
               </li>
-                <li><Link className='link' to='/sapatos'>SAPATOS</Link></li>
-                <li><Link className='link' to='/bolsas'>BOLSAS</Link></li>
-                <li><Link className='link' to='/acessorios'>ACESSÓRIOS</Link></li>
-                <li><Link className='link' to='/promocao'>OFF</Link></li>
+                <li><Link className='link' to='/'>SAPATOS</Link></li>
+                <li><Link className='link' to='/'>BOLSAS</Link></li>
+                <li><Link className='link' to='/'>ACESSÓRIOS</Link></li>
+                <li><Link className='link' to='/'>OFF</Link></li>
               </ul>
             </CSSTransition>
             
             :
 
             <ul className= 'sections'>
-              <li><Link className='link' to='/sapatos'>SAPATOS</Link></li>
-              <li><Link className='link' to='/bolsas'>BOLSAS</Link></li>
-              <li><Link className='link' to='/acessorios'>ACESSÓRIOS</Link></li>
-              <li><Link className='link' to='/promocao'>OFF</Link></li>
+              <li><Link className='link' to='/'>SAPATOS</Link></li>
+              <li><Link className='link' to='/'>BOLSAS</Link></li>
+              <li><Link className='link' to='/'>ACESSÓRIOS</Link></li>
+              <li><Link className='link' to='/'>OFF</Link></li>
           </ul>  
         
         } 

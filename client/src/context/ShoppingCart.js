@@ -1,58 +1,42 @@
-import React,{createContext,useContext,useState,useEffect, } from 'react'
+import React,{createContext,useContext,useState,useEffect } from 'react'
 /*import api from '../Services'*/
 import {getProducts} from '../fakeServer/server'
+
+
 
 
 const CartContext = createContext();
 
 
  const CartProvider = ({children}) => {
+     
     const[showShoppingCart, setShowShoppingCart] = useState(false)
     const [productList, setProductList] = useState([])
-    const [totalPrice ,setTotalPrice] = useState(0);
+    const [total, setTotal] = useState(0)
 
-    
 
-/*
-    useEffect(() => {
-       const fetchProductList = () =>{
-        api.get('/products').then(response => setProductList(response.data));
-       }
-       fetchProductList()  
-         
-    },[])
-     
-*/
-
-    
     useEffect( ()=>{
-        const fetchData = () =>{
+        const fetchProductList = () =>{
             const response = getProducts('/products')
             setProductList(response)
+            
         }
-        fetchData();
+        fetchProductList();
+        console.log('tem que chegar primeiro')
     },[])
-
-   
-    useEffect(()=>{
-        const renderOnEveryProductListChange = ()=>{
-            let total = [...productList].reduce((acc,elem) => acc + (elem.price * elem.quantity),0)
-        
-            setTotalPrice(total)
-           }
-        renderOnEveryProductListChange(); 
-        
-    },[productList])
 
     
 
+    
     return(
         <CartContext.Provider
             value={
                 {
                     showShoppingCart, setShowShoppingCart,
                     productList, setProductList,
-                    totalPrice ,setTotalPrice,
+                    total, setTotal
+                    
+                    
                     
                 }
                 
@@ -83,10 +67,10 @@ export function useProductList(){
 export function useTotalPrice(){
     const context = useContext(CartContext);
     if(!context) throw new Error('TotalPrice must be used within CartProvider');
-    const { totalPrice, setTotalPrice} = context;
+    const { total, setTotal} = context;
     
 
-      return {totalPrice, setTotalPrice};
+      return {total, setTotal}; 
 }
 
 
