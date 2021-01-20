@@ -58,13 +58,22 @@ const ShoppingCart = () => {
     }
 
     return (
+     <> 
+     <CSSTransition in={showShoppingCart} 
+                    appear={true}
+                    timeout={400} 
+                    classNames='fade'>  
+        
+        <div className='modal__shoppingCart'></div>
     
+    </CSSTransition>
+
     <CSSTransition in={showShoppingCart} 
                     appear={true}
                     timeout={400} 
                     classNames='inverse-slide'>
 
-        <div className='modal__shoppingCart'>
+        <div className='modal__conteiner'>
     
         <div className='shoppingCart'>
             <button onClick={()=> toggleShoppingCartOnScreen()} className='modal__button--close'/>       
@@ -105,6 +114,7 @@ const ShoppingCart = () => {
             
         </div>
         </CSSTransition>
+        </>
     )
 }
 

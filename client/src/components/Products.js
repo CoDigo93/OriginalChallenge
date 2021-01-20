@@ -29,7 +29,9 @@ const Products = () => {
                    
       
           <CSSTransition classNames='fade'
-                        timeout={300}
+                        timeout={400}
+                        appear={true}
+                        enter={true}
                         unmountOnExit
                         in={PurchaseConfirmation}>  
 

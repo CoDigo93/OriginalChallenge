@@ -1,8 +1,22 @@
     
 .modal__shoppingCart{
+    width:100vw!important;
+    height:100vh!important;
+    background: rgba(32, 32, 32, 0.6);
+    display: block;
+    justify-content: flex-end;
+   
+    top:0;
+    z-index: 10000000;
+    position: fixed; 
+    overflow:hidden !important;
+
+}
+
+.modal__conteiner{
     width:100vw;
     height:100vh;
-    background: rgba(32, 32, 32, 0.6);
+    background: transparent;
     display: flex;
     justify-content: flex-end;
     position: absolute;
@@ -269,9 +283,12 @@
 
 @media(max-width:999px){
     .modal__shoppingCart{
+        display:none;
+    }
+    .modal__conteiner{
     width:100vw;
     height:100vh;
-    background: rgba(32, 32, 32, 0.6);
+    background: transparent;
     display: flex;
     justify-content: center;
     position: absolute;

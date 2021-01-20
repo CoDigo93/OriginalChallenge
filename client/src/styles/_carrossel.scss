@@ -90,12 +90,14 @@
             width: 10%;
         }
         .carrossel__session{
-            width:50%!important;
+            width:40%!important;
             height:45%;
             display:flex;
             align-items:baseline;
             justify-content:flex-start;
-            font-size:14px;
+            font-size:12px;
+            margin-left:30px;
+            margin-top:10px;
             .link{
                 color:#AEB6C1;
             }

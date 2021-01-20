@@ -54,7 +54,8 @@ const ConfirmPurchase = ({onClose }) => {
          
             </CSSTransition>  
          </SwitchTransition>
-         :<ShoppingCart/>  
+         :
+         <ShoppingCart/>  
          }
          
          
