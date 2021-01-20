@@ -52,13 +52,15 @@ const Footer = () => {
                 <div id='footer__inputName'>
                     <input name='name' 
                            type='text'
-                           placeholder=' '/> 
+                           placeholder=' '
+                           required/> 
                     <label htmlFor='name'>Nome</label>
                 </div>
                 <div id='footer__inputEmail'>    
                     <input name='Email' 
                           type='email'
-                          placeholder=' '/>    
+                          placeholder=' '
+                          required/>    
                     <label htmlFor='Email'>E-mail</label>
                     
                 </div>

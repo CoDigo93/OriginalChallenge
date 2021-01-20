@@ -16,9 +16,14 @@ const CartContext = createContext();
 
 
     useEffect( ()=>{
-        const fetchProductList = () =>{
-            const response = getProducts('/products')
-            setProductList(response)
+        const fetchProductList = async () =>{
+            try{
+                const response = await getProducts('/products')
+                setProductList(response)
+
+            }catch(err){
+                throw new Error(err)
+            }
             
         }
         fetchProductList();

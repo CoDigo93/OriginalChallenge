@@ -60,10 +60,11 @@
 
   const resource = '/products'
  
- export const getProducts = url =>{
-     if(url === resource)
-        return PRODUCTS
-         
- }
+ export const getProducts = url => new Promise((resolve,reject)=>{
+     if(url !== resource)
+       reject(new Error(`request error: This resource "${url}" does not exist, try again!`))
+        
+    resolve(PRODUCTS)
+ })
   
  
