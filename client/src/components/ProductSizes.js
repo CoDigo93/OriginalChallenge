@@ -6,7 +6,7 @@ const ProductSizes = () => {
     <> 
         <div className='product__size'>
             <span>Tamanho:</span>
-            <Link to='/medidas'>Guia de medidas </Link>
+            <Link to='/'>Guia de medidas </Link>
 
         </div>
         
